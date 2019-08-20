@@ -42,9 +42,12 @@ def response(userInput):
     idx = flat.argsort()[-2]
 
     flat.sort()
+    best_response = flat[-2]
 
-
-    return None 
+    if best_response == 0:
+        return "I don't know that"
+    else:
+        return sentence_tokens[idx]
 
 
 print("ROBOTBOT: My name is RobotBot. I will answer queries about airplanes. If you want to exit type bye")
