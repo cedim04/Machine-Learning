@@ -6,7 +6,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 f = open('info.txt', 'r')
-raw = f.read().lower()
+raw = f.read()
 
 scentence_tokens = nltk.sent_tokenize(raw)
 
@@ -31,6 +31,7 @@ def greeting(sentence):
             return random.choice(GREETING_RESPONSE)
 
 print(greeting("Hello"))
+
 
 
     
