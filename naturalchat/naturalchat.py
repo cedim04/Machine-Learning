@@ -45,7 +45,7 @@ def response(userInput):
     best_response = flat[-2]
 
     if best_response == 0:
-        return "I don't know that"
+        return "I'm sorry, I don't know that yet :("
     else:
         return sentence_tokens[idx]
 
@@ -62,7 +62,7 @@ while True:
             print(response(userInput))
             sentence_tokens.remove(userInput)
     else:
-        print("Bye!")
+        print("Goodbye! Thank you for waisting a perfectly good minute of your life with us. We sincerely hope you did not enjoy it. Please do hesitate to come back.")
         break 
 
 
