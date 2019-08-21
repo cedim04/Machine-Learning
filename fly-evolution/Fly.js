@@ -9,6 +9,13 @@ class Fly {
         this.food = food;
         this.fitness = 0;
         this.hitSomething = false;
+        this.gotFood = false;
+
+        this.searchingColor = color(252, 144, 3, 150);
+        this.foundColor = color(0, 255, 20, 150);
+        this.hitColor = color(0, 0, 0);
+
+
 
     }
     
@@ -55,6 +62,7 @@ class Fly {
         // Check Food
         let distance = dist(this.pos.x, this.pos.y, this.food.pos.x, this.food.pos.y);
         if(distance < this.food.radius){
+            this.gotFood = true;
             this.hitSomething = true;
 
         }
@@ -75,9 +83,25 @@ class Fly {
         noStroke();
         translate(this.pos.x, this.pos.y);
         fill(255, 0, 217);
+        textSize(10);
         text(this.fitness.toFixed(1), 0, 0);
         rotate(this.vel.heading());
-        fill(255, 255, 237, 150);
+        
+        if(this.gotFood){
+            fill(this.foundColor);
+
+        
+        }else if(this.hitSomething){
+            fill(this.hitColor)
+
+        }else{
+            fill(this.searchingColor);
+
+        }
+        
+
+
+       
         rectMode(CENTER);
         rect(0, 0, 25, 15);
         pop();
